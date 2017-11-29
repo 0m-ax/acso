@@ -1,25 +1,3 @@
-version: '2'
-
-services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "8081:80"
-    volumes:
-      - /var/certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /etc/nginx/vhost.d \
-      - /usr/share/nginx/html \
-    lable: com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
-  whoami:
-    image: jwilder/whoami
-    environment:
-      - VIRTUAL_HOST=whoami.local
-  iroam:
-    build: ./app/
-    environment:
-      - VIRTUAL_HOST=embed.iroam.local
-    
 version: "2"
 
 services:
