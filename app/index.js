@@ -6,6 +6,5 @@ app.use(function(req, res, next) {
 });
 app.get('/iRoam/jobs/:jid/:job',(req,res)=>{
     res.redirect(`https://maxc.ams3.digitaloceanspaces.com/jobs/${req.params.jid}/${req.params.jid}.html`)
-    res.send("redirecting")
 })
 app.listen(80)
