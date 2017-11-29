@@ -1,6 +1,6 @@
 const express = require('express')
 let app = express()
-router.use(function(req, res, next) {
+app.use(function(req, res, next) {
     console.log('%s %s %s', req.method, req.url, req.path);
     next();
 });
