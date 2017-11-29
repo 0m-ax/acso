@@ -1,0 +1,19 @@
+{
+  "name": "acso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "lit-html": "^0.7.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.2"
+  }
+}
