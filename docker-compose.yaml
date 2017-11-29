@@ -1,24 +1,22 @@
 version: "2"
 
 services:
-  nginx:
-    image: jwilder/nginx-proxy
-    container_name: nginx
+  nginx-proxy:
+    image: 'jwilder/nginx-proxy:latest'
     ports:
-      - "80:80"
-      - "443:443"
+      - '80:80'
+      - '443:443'
     volumes:
-      - "/etc/nginx/conf.d"
-      - "/etc/nginx/vhost.d"
-      - "/usr/share/nginx/html"
-      - "./proxy/certs:/etc/nginx/certs:rw"
-  letsencrypt-nginx-proxy-companion:
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: letsencrypt-nginx-proxy-companion
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - /usr/share/nginx/html
+      - /etc/nginx/vhost.d
+  nginx-proxy-letsencrypt:
+    image: 'jrcs/letsencrypt-nginx-proxy-companion:latest'
+    volumes:
+      - /etc/nginx/certs
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
     volumes_from:
-      - nginx
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - nginx-proxy
   embed:
     build: ./embed/
     environment:
