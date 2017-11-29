@@ -11,8 +11,7 @@ services:
       - "/etc/nginx/conf.d"
       - "/etc/nginx/vhost.d"
       - "/usr/share/nginx/html"
-      - "./proxy/certs:/etc/nginx/certs:ro"
-    label: com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+      - "./proxy/certs:/etc/nginx/certs:rw"
   letsencrypt-nginx-proxy-companion:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: letsencrypt-nginx-proxy-companion
@@ -20,7 +19,6 @@ services:
       - nginx
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "./proxy/certs:/etc/nginx/certs:rw"
   embed:
     build: ./embed/
     environment:
