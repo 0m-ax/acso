@@ -18,9 +18,16 @@ services:
     volumes_from:
       - nginx-proxy
   embed:
+    build: ./app/
+    environment:
+      - VIRTUAL_HOST=app.ac.maxc.in
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=app.ec.maxc.in
+      - LETSENCRYPT_EMAIL=maxc@maxc.in
+  embed:
     build: ./embed/
     environment:
-      - VIRTUAL_HOST=test1.maxc.in
+      - VIRTUAL_HOST=embed.ac.maxc.in
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=test1.maxc.in
+      - LETSENCRYPT_HOST=embed.ac.maxc.in
       - LETSENCRYPT_EMAIL=maxc@maxc.in
