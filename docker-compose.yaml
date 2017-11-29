@@ -17,7 +17,7 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     volumes_from:
       - nginx-proxy
-  embed:
+  app:
     build: ./app/
     environment:
       - VIRTUAL_HOST=app.ac.maxc.in
