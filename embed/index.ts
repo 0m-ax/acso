@@ -16,7 +16,7 @@ app.get('/wp-embed/:jid',(req,res)=>{
     <body>
         <div class="wrapper">
             <div class="h_iframe">
-                <iframe src="https://app.iroam.website/iRoam/jobs/${req.params.jid}/${req.params.jid}.html" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://app.ac.maxc.in/jobs/${req.params.jid}/${req.params.jid}.html" frameborder="0" allowfullscreen></iframe>
             </div>
         </div> 
     </body> 
