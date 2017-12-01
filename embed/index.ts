@@ -1,7 +1,7 @@
 import * as express from "express";
 import {html}  from 'lit-html'
 const app = express()
-app.get('/wp-embed/:jid',(req,res)=>{
+app.get('/embed/:jid.html',(req,res)=>{
     res.send(`
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html>
